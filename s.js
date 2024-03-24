@@ -425,7 +425,7 @@ else if (message.includes("rain") ||
     speech.text = "Opening Rain Guide";
 
     // Open the link in a new tab, preventing the default behavior
-    const newTab = window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain", "_blank");
+    const newTab = window.open("https://www.aiub.edu/about", "_blank");
     newTab.focus(); // Ensure the new tab is focused
 }
 
