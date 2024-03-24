@@ -129,12 +129,8 @@ speech.text = "Opening Psychological GOD";
 window.open("https://mymoon.pages.dev/elements/metaphysics/psychological_god", "_blank");
 }
 else if (message.toLowerCase().includes("mind map") || message.includes("mind planning") || message.includes("mind plan")) {
-    speech.text = "Opening Mind Map";
-    
-    // Check if the device is not mobile
-    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-        window.open("https://mymoon.pages.dev/elements/guide/mind_map", "_blank");
-    }
+speech.text = "Opening Mind Map";
+window.open("https://mymoon.pages.dev/elements/guide/mind_map", "_blank");
 }
 
 
