@@ -12,17 +12,23 @@ recognition.onstart = function () {
     
     
 }
+let recognitionTimeout;
+
 recognition.onresult = function (event) {
-    console.log(event)
+    console.log(event);
     var current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    content.innerHTML = transcript
-    readOutLoad(transcript)
-    console.log(transcript)
-    content.innerHTML = "Touch MyMoon to Listen Voice Command";
-    
-  
+    content.innerHTML = transcript;
+    readOutLoad(transcript);
+    console.log(transcript);
 
+    // Clear the previous timeout
+    clearTimeout(recognitionTimeout);
+
+    // Set a new timeout to change the content after 5 seconds
+    recognitionTimeout = setTimeout(function() {
+        content.innerHTML = "Touch MyMoon to Listen Voice Command";
+    }, 5000); // Change content after 5 seconds (5000 milliseconds)
 }
 voiceBtn.addEventListener("click", () => {
     recognition.start();
@@ -40,17 +46,6 @@ voiceBtn.addEventListener("keydown", function (event) {
 
 
 
-// Remove any existing event listeners before adding a new one
-voiceBtn.removeEventListener("click", startRecognition);
-
-// Add event listener to the button
-voiceBtn.addEventListener("click", startRecognition);
-
-// Function to start recognition
-function startRecognition() {
-    recognition.start();
-    console.log("addevent");
-}
 
 
 function resetRecognition() {
@@ -428,7 +423,8 @@ else if (message.includes("rain") ||
     message.includes("rain in night") || 
     message.includes("rain sleep")) {
 speech.text = "Opening Rain Guide";
-window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain");
+// window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain");
+window.location.href = "https://mymoon.pages.dev/elements/stimulative_simulation/rain","_blank";
 } 
 else if (message.toLowerCase().includes("thunder")) {
     speech.text = "Opening Thunder Guide";
