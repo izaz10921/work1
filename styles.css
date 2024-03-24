@@ -36,8 +36,8 @@ body{
 .start{
     /* border: 3px solid #51adcf; */
     border-radius: 100px;
-    width: 155px;
-    height: 155px;
+    width: 162px;
+    height: 158px;
     text-align: center;
     margin: 100px auto 5% auto;
     box-shadow: 0px 10px 10px rgba(255, 255, 255, 0.1), 0px 1px 44px rgba(255, 255, 255, 0.5);
@@ -50,6 +50,74 @@ body{
 .start:focus{
     transform:translateY(-2);
 }
+.rainbow-text{
+    font-size: 18px;
+    text-align: center;
+} 
+.rainbow-text .char { 
+    color: hsl(
+     calc(360deg * var(--char-percent)
+ ), 
+ 65%,
+ 90%
+ );}
+ .rainbow-text.animated .char {
+   animation: rainbow-colors 2s linear infinite;
+   animation-delay: calc(-2s * var(--char-percent));
+ }
+ 
+ @keyframes rainbow-colors {
+   0% { color: hsl(0turn, 90%, 65%); }
+   25% { color: hsl(.25turn, 90%, 65%); }
+   50% { color: hsl(.5turn, 90%, 65%); }
+   75% { color: hsl(.75turn, 90%, 65%); }
+   100% { color: hsl(1turn, 90%, 65%); }
+ }
+ .splitting .char {
+     --char-percent: calc(var(--char-index) / var(--char-total));
+     --char-offset: calc(var(--char-index) - var(--char-center));
+     --distance: calc( (var(--char-offset) * var(--char-offset)) / var(--char-center) );
+     --distance-sine: calc(var(--char-offset) / var(--char-center));
+     --distance-percent: calc((var(--distance) / var(--char-center)));
+ }
+ .splitting .char {
+     position: relative;
+ }
+ 
+ 
+ .rainbow-text h1{
+ 
+   background-image: linear-gradient(-90deg, #ff0000, rgb(166,246,86), rgb(85,246,246), rgb(166, 85, 246), rgb(246,85,85));
+   background-size: 200%;
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+   animation: animate 2.5s linear infinite;
+   font-size: 20px;
+   padding: 12px;
+   animation-direction: reverse;
+ 
+ }
+ .rainbow-text p{
+ 
+   background-image: linear-gradient(-90deg, #ff0000, rgb(166,246,86), rgb(85,246,246), rgb(166, 85, 246), rgb(246,85,85));
+   background-size: 200%;
+   -webkit-text-fill-color: transparent;
+   -webkit-background-clip: text;
+   animation: animate 2.5s linear infinite;
+   font-size: 18px;
+   padding: 5px;
+   animation-direction: reverse;
+ 
+ }
+ 
+ @keyframes animate{
+   0%{
+     background-position: 0%;
+   }
+   100%{
+     background-position:  200%;
+   }
+ }
 /* .message{
     width: 269px;
     height: 20px;

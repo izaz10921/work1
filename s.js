@@ -109,16 +109,7 @@ message.includes('who coded jarvis') ||
 message.includes('who created Jarvis')) {
 speech.text = me;
 }
-// else if (message.includes('hello') || message.includes('hai')) {
-// speech.text = kk;
-// }
-// else if (message.includes("what is the time now") ||
-// message.includes("can you tell me the time") ||
-// message.includes("what the time") ||
-// message.includes("time") ||
-// message.includes("what's the time now")) {
-// speech.text = time;
-// }
+
 else if (message.includes("my moon") || message.includes("mind machine") || message.includes("psychological mind machine")) {
 speech.text = "Opening MyMoon";
 window.open("https://mymoon.pages.dev", "_blank");
@@ -356,7 +347,7 @@ window.open("https://mymoon.pages.dev/elements/applications/mind_master", "_blan
             //  message.includes("placebo") || 
              ) {
         speech.text = "Opening Zero Therapy Guide";
-        window.open("https://mymoon.pages.dev/elements/primary", "_blank");
+        window.open("https://mymoon.pages.dev/elements/applications/zero_therapy", "_blank");
     } 
     else if (message.includes("blank mind") || 
              message.includes("zero mind") || 
@@ -364,7 +355,7 @@ window.open("https://mymoon.pages.dev/elements/applications/mind_master", "_blan
              message.includes("mind refreshing") || 
              message.includes("mind refreshment")) {
         speech.text = "Opening Blank Mind Guide";
-        window.open("https://mymoon.pages.dev/elements/primary", "_blank");
+        window.open("https://mymoon.pages.dev/elements/applications/blank_mind", "_blank");
     } 
     else if (message.includes("relief") || 
              message.includes("psychological relief")) {
@@ -637,15 +628,6 @@ else if (message.includes("what special today") && k.getMonth() === 4 && k.getDa
 
     }
     
-    // else {
-      
-    //     setTimeout(function() {
-    //         window.open("https://mymoon.pages.dev", "_blank");
-           
-    //     }, 1000); 
-    //     return;
-  
-    // }
     
     
         window.speechSynthesis.speak(speech);
