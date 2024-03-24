@@ -38,6 +38,21 @@ voiceBtn.addEventListener("keydown", function (event) {
 
 })
 
+
+
+// Remove any existing event listeners before adding a new one
+voiceBtn.removeEventListener("click", startRecognition);
+
+// Add event listener to the button
+voiceBtn.addEventListener("click", startRecognition);
+
+// Function to start recognition
+function startRecognition() {
+    recognition.start();
+    console.log("addevent");
+}
+
+
 function resetRecognition() {
     
     recognition.start();
