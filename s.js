@@ -129,8 +129,12 @@ speech.text = "Opening Psychological GOD";
 window.open("https://mymoon.pages.dev/elements/metaphysics/psychological_god", "_blank");
 }
 else if (message.toLowerCase().includes("mind map") || message.includes("mind planning") || message.includes("mind plan")) {
-speech.text = "Opening Mind Map";
-window.open("https://mymoon.pages.dev/elements/guide/mind_map", "_blank");
+    speech.text = "Opening Mind Map";
+    
+    // Check if the device is not mobile
+    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        window.open("https://mymoon.pages.dev/elements/guide/mind_map", "_blank");
+    }
 }
 
 
@@ -425,7 +429,7 @@ else if (message.includes("rain") ||
     speech.text = "Opening Rain Guide";
 
     // Open the link in a new tab, preventing the default behavior
-    const newTab = window.open("https://www.aiub.edu/about", "_blank");
+    const newTab = window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain", "_blank");
     newTab.focus(); // Ensure the new tab is focused
 }
 
