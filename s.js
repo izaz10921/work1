@@ -422,13 +422,10 @@ window.open("https://mymoon.pages.dev/elements/stimulative_simulation/brain_jerk
 else if (message.includes("rain") || 
     message.includes("rain in night") || 
     message.includes("rain sleep")) {
-    speech.text = "Opening Rain Guide";
+speech.text = "Opening Rain Guide";
+window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain","_blank");
 
-    // Open the link in a new tab, preventing the default behavior
-    const newTab = window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain", "_blank");
-    newTab.focus(); // Ensure the new tab is focused
-}
-
+} 
 else if (message.toLowerCase().includes("thunder")) {
     speech.text = "Opening Thunder Guide";
     window.open("https://mymoon.pages.dev/elements/stimulative_simulation/bijli", "_blank");
@@ -644,9 +641,11 @@ else if (message.includes("what special today") && k.getMonth() === 4 && k.getDa
     
     
     
-        window.speechSynthesis.speak(speech);
+        else{
+            
         window.open("https://mymoon.pages.dev", "_blank");
-    
+        }
+        window.speechSynthesis.speak(speech);
     
     
    
