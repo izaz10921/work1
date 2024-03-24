@@ -4,10 +4,13 @@ var content = document.querySelector(".content")
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
 const recognition = new SpeechRecognition()
+content.innerHTML = "Try to say something";
 
 recognition.onstart = function () {
     console.log("start speaking")
-    content.innerHTML = "listening"
+    content.innerHTML = "listening";
+    
+    
 }
 recognition.onresult = function (event) {
     console.log(event)
@@ -16,11 +19,15 @@ recognition.onresult = function (event) {
     content.innerHTML = transcript
     readOutLoad(transcript)
     console.log(transcript)
+   
+    content.innerHTML = "Try to say something";
+  
 
 }
 voiceBtn.addEventListener("click", () => {
     recognition.start();
     console.log("addevent")
+    
 })
 voiceBtn.addEventListener("keydown", function (event) {
 
@@ -30,6 +37,11 @@ voiceBtn.addEventListener("keydown", function (event) {
     }
 
 })
+
+function resetRecognition() {
+    
+    recognition.start();
+}
 
 function readOutLoad(message) {
 
@@ -75,7 +87,7 @@ function readOutLoad(message) {
 
     const speech = new SpeechSynthesisUtterance();
 
-    speech.text = 'I dont know what to say';
+    speech.text = "I Don't Understand But Keep Enjoy My moon";
     content.textContent = message;
 
     if (message.includes("how are you")) {
@@ -92,15 +104,14 @@ speech.text = weather;
 }
 else if (message.includes('who made you') ||
 message.includes('who coded you') ||
-message.includes('who created you') ||
 message.includes('who made Jarvis') ||
 message.includes('who coded jarvis') ||
 message.includes('who created Jarvis')) {
 speech.text = me;
 }
-else if (message.includes('hello') || message.includes('hai')) {
-speech.text = kk;
-}
+// else if (message.includes('hello') || message.includes('hai')) {
+// speech.text = kk;
+// }
 // else if (message.includes("what is the time now") ||
 // message.includes("can you tell me the time") ||
 // message.includes("what the time") ||
@@ -116,7 +127,7 @@ else if (message.includes("God") || message.includes("true God") || message.incl
 speech.text = "Opening Psychological GOD";
 window.open("https://mymoon.pages.dev/elements/metaphysics/psychological_god", "_blank");
 }
-else if (message.includes("mind map") || message.includes("mind planning") || message.includes("mind plan")) {
+else if (message.toLowerCase().includes("mind map") || message.includes("mind planning") || message.includes("mind plan")) {
 speech.text = "Opening Mind Map";
 window.open("https://mymoon.pages.dev/elements/guide/mind_map", "_blank");
 }
@@ -178,7 +189,7 @@ window.open("https://mymoon.pages.dev/elements/solutions/mood_swing_solution", "
 
 
 else if (message.includes("loneliness") || 
-         message.includes("singleness") || 
+        //  message.toLowerCase().includes("singleness") || 
          message.includes("alone") || 
          message.includes("loneliness solution")) {
     speech.text = "Opening Loneliness Solution";
@@ -191,7 +202,7 @@ else if (message.includes("depression") ||
     window.open("https://mymoon.pages.dev/elements/solutions/depression_solution", "_blank");
 } 
 else if (message.includes("introvert") || 
-         message.includes("introvercy") || 
+        //  message.includes("introvercy") || 
          message.includes("introvert solution")) {
     speech.text = "Opening Introvert Solution";
     window.open("https://mymoon.pages.dev/elements/solutions/introversy_solution", "_blank");
@@ -227,7 +238,7 @@ else if (message.includes("idea") ||
 else if (message.includes("happy") || 
          message.includes("happiness") || 
          message.includes("joy") || 
-         message.includes("bless ness") || 
+        //  message.includes("bless") || 
          message.includes("pleasure") || 
          message.includes("delight")) {
     speech.text = "Opening Happiness Facts";
@@ -235,7 +246,10 @@ else if (message.includes("happy") ||
 }
 
 
-
+else if (message.includes("magic mind")) {
+    speech.text = "Opening Magic Mind Guide";
+    window.open("https://mymoon.pages.dev/elements/applications/magic_mind", "_blank");
+} 
 
 else if (message.includes("magic") || 
          message.includes("black magic") || 
@@ -243,6 +257,15 @@ else if (message.includes("magic") ||
     speech.text = "Opening Magic Facts";
     window.open("https://mymoon.pages.dev/elements/facts/psycho_magic", "_blank");
 } 
+else if (message.includes("non ethical thinking") || 
+         message.includes("crime") || 
+        //  message.includes("sin") || 
+         message.includes("criminal") || 
+         message.toLowerCase().includes("criminal mind") || 
+         message.includes("criminal thinking")) {
+    speech.text = "Opening Non Ethical Thinking Guide";
+    window.open("https://mymoon.pages.dev/elements/stimulative_simulation/non_ethical_thinking", "_blank");
+}
 else if (message.includes("think") || 
          message.includes("thinking")) {
     speech.text = "Opening Thinking Applications";
@@ -255,10 +278,10 @@ else if (message.includes("mind reading") ||
 } 
 else if (message.includes("music") || 
          message.includes("music mind") || 
-         message.includes("binaural beats") || 
-         message.includes("binaural beat") || 
-         message.includes("binaural beat music") || 
-         message.includes("binaural beats music") || 
+        //  message.includes("binaural beats") || 
+        //  message.includes("binaural beat") || 
+        //  message.includes("binaural beat music") || 
+        //  message.includes("binaural beats music") || 
          message.includes("brain music") || 
          message.includes("brain wave music")) {
     speech.text = "Opening Music Mind Applications";
@@ -299,10 +322,9 @@ window.open("https://mymoon.pages.dev/elements/applications/immortal_mind", "_bl
 } 
 else if (message.includes("mind wave") || 
 message.includes("telepathy") || 
-message.includes("esp") || 
-message.includes("thought transference") || 
-message.includes("extrasensory perception") || 
-message.includes("brain to brain thinking transfer")) {
+message.toLowerCase().includes("esp") 
+ 
+) {
 speech.text = "Opening Mind Wave Guide";
 window.open("https://mymoon.pages.dev/elements/applications/mind_wave", "_blank");
 } 
@@ -322,20 +344,17 @@ speech.text = "Opening Mind Master Guide";
 window.open("https://mymoon.pages.dev/elements/applications/mind_master", "_blank");
 }
 
-    else if (message.includes("magic mind")) {
-        speech.text = "Opening Magic Mind Guide";
-        window.open("https://mymoon.pages.dev/elements/applications/magic_mind", "_blank");
-    } 
+  
     else if (message.includes("shock") || 
-             message.includes("trauma") || 
-             message.includes("psychological shock")) {
+             message.includes("trauma")  
+             ) {
         speech.text = "Opening Psychological Shock Guide";
         window.open("https://mymoon.pages.dev/elements/applications/psychological_shock", "_blank");
     } 
-    else if (message.includes("zero therapy") || 
-             message.includes("therapy") || 
-             message.includes("placebo") || 
-             message.includes("placebo effect")) {
+    else if (message.toLowerCase().includes("zero therapy") || 
+             message.includes("therapy")  
+            //  message.includes("placebo") || 
+             ) {
         speech.text = "Opening Zero Therapy Guide";
         window.open("https://mymoon.pages.dev/elements/primary", "_blank");
     } 
@@ -364,7 +383,7 @@ window.open("https://mymoon.pages.dev/elements/stimulative_simulation/moment", "
 else if (message.includes("life") || 
     message.toLowerCase().includes("life time") || 
     message.includes("life calculator")) {
-speech.text = "Opening Life Guide";
+speech.text = "Opening Life Calculator";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/life_time", "_blank");
 } 
 else if (message.includes("relation") || 
@@ -393,6 +412,12 @@ else if (message.includes("mind candle") ||
 speech.text = "Opening Mind Candle Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/mind_candle", "_blank");
 } 
+
+else if (message.includes("psychedelic") || 
+message.includes("brain jerk")) {
+speech.text = "Opening Brain Jerk Guide";
+window.open("https://mymoon.pages.dev/elements/stimulative_simulation/brain_jerk", "_blank");
+}
 else if (message.includes("rain") || 
     message.includes("rain in night") || 
     message.includes("rain sleep")) {
@@ -405,7 +430,11 @@ else if (message.toLowerCase().includes("thunder")) {
 }
     
     
-    
+else if (
+    message.includes("hope of light")) {
+    speech.text = "Opening Hope of Light Guide";
+    window.open("https://mymoon.pages.dev/elements/stimulative_simulation/hope_light", "_blank");
+    }   
     
     
     
@@ -420,11 +449,7 @@ else if (message.toLowerCase().includes("canvas")) {
 speech.text = "Opening Canvas Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/canvas", "_blank");
 } 
-else if (message.includes("hope") || 
-message.includes("hope of light")) {
-speech.text = "Opening Hope of Light Guide";
-window.open("https://mymoon.pages.dev/elements/stimulative_simulation/hope_light", "_blank");
-} 
+ 
 else if (message.includes("squid")) {
 speech.text = "Opening Obedient Squid Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/obedient_squid", "_blank");
@@ -437,11 +462,7 @@ message.toLowerCase().includes("paranormal activity")) {
 speech.text = "Opening Creepy Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/creepy", "_blank");
 } 
-else if (message.includes("psycodelic") || 
-message.includes("brain jerk")) {
-speech.text = "Opening Brain Jerk Guide";
-window.open("https://mymoon.pages.dev/elements/stimulative_simulation/brain_jerk", "_blank");
-} 
+ 
 else if (message.includes("hypnotism") || 
 message.includes("hypnotic") || 
 message.includes("hypnotize") || 
@@ -449,21 +470,12 @@ message.includes("hypnosis")) {
 speech.text = "Opening Hypnosis Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/hypnotize", "_blank");
 } 
-else if (message.includes("non ethical thinking") || 
-         message.includes("crime") || 
-         message.includes("sin") || 
-         message.includes("criminal") || 
-         message.toLowerCase().includes("criminal mind") || 
-         message.includes("criminal thinking")) {
-    speech.text = "Opening Non Ethical Thinking Guide";
-    window.open("https://mymoon.pages.dev/elements/stimulative_simulation/non_ethical_thinking", "_blank");
-}
+
 else if (message.includes("psycho") || 
 message.includes("psyco satisfaction") || 
 message.includes("crazy") || 
 message.includes("revenge") || 
-message.includes("anger") || 
-message.includes("distraction")) {
+message.includes("anger") ) {
 speech.text = "Opening Psycho Satisfaction Guide";
 window.open("https://mymoon.pages.dev/elements/stimulative_simulation/psycho_satisfaction", "_blank");
 } 
@@ -480,7 +492,7 @@ else if (message.includes("open YouTube") || message.includes("open youtube")) {
     window.open("https://youtube.com", "_blank");
     speech.text = "opening youtube";
 }
-else if (message.includes("what's the time now") || message.includes("time")) {
+else if ( message.includes("time")) {
     var currentTime = new Date();
     speech.text = "It is " + currentTime.getHours() + ":" + currentTime.getMinutes() + " right now";
     console.log("It is " + currentTime.getHours() + ":" + currentTime.getMinutes() + " right now");
@@ -624,11 +636,25 @@ else if (message.includes("what special today") && k.getMonth() === 4 && k.getDa
         window.open(linkekk, "_blank");
 
     }
-
-
-
-
-    window.speechSynthesis.speak(speech)
+    
+    // else {
+      
+    //     setTimeout(function() {
+    //         window.open("https://mymoon.pages.dev", "_blank");
+           
+    //     }, 1000); 
+    //     return;
+  
+    // }
+    
+    
+        window.speechSynthesis.speak(speech);
+        window.open("https://mymoon.pages.dev", "_blank");
+    
+    
+    
+   
+    
 }
 function show() {
     var divs = document.getElementById("divs").style.visibility = "visible"
