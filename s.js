@@ -4,7 +4,7 @@ var content = document.querySelector(".content")
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
 const recognition = new SpeechRecognition()
-content.innerHTML = "Try to say something";
+content.innerHTML = "Touch MyMoon to Listen Voice Command";
 
 recognition.onstart = function () {
     console.log("start speaking")
@@ -19,8 +19,8 @@ recognition.onresult = function (event) {
     content.innerHTML = transcript
     readOutLoad(transcript)
     console.log(transcript)
-   
-    content.innerHTML = "Try to say something";
+    content.innerHTML = "Touch MyMoon to Listen Voice Command";
+    
   
 
 }
@@ -413,7 +413,7 @@ else if (message.includes("rain") ||
     message.includes("rain in night") || 
     message.includes("rain sleep")) {
 speech.text = "Opening Rain Guide";
-window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain", "_blank");
+window.open("https://mymoon.pages.dev/elements/stimulative_simulation/rain");
 } 
 else if (message.toLowerCase().includes("thunder")) {
     speech.text = "Opening Thunder Guide";
